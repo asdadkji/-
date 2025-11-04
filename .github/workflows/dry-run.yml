@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
 
-job:
+jobs:
   frontend:
     runs-on: ubuntu-latest
     steps:
