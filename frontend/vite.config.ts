@@ -7,10 +7,12 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  //插件控制
   plugins: [
     vue(),
     vueDevTools(),
   ],
+  //路径优化
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -19,8 +21,9 @@ export default defineConfig({
       'utils': path.resolve(__dirname, './src/utils'),
       'apis': path.resolve(__dirname, './src/apis'),
     },
-    extensions:['.js','/ts','.jsx','.tsx','.json','.vue']
+    extensions:['.js','.ts','.jsx','.tsx','.json','.vue']
   },
+  //样式设计
   css: {
     preprocessorOptions: {
       scss: {
@@ -28,6 +31,7 @@ export default defineConfig({
       }
     }
   },
+  //服务器配置
   server: {
     port: 3000,
     host:'0.0.0.0',
@@ -42,6 +46,7 @@ export default defineConfig({
       }
     }
   },
+  //构建配置
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -55,6 +60,7 @@ export default defineConfig({
       }
     }
   },
+  //环境变量
   define: {
     __APP_ENV__: JSON.stringify(process.env.APP_ENV)
   }
